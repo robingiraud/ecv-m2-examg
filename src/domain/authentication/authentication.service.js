@@ -39,7 +39,7 @@ export function login(data) {
 }
 
 export function logout() {
-    // TODO   
+    return fetch(`/api/logout/`)
 }
 
 export function getMe() {

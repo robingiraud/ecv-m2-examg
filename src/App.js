@@ -5,6 +5,7 @@ import Auth from './pages/Auth';
 import Home from './pages/Home';
 import { ApplicationContext, ApplicationProvider } from './domain/application.store';
 import { authGetMe } from './domain/authentication/authentication.actions';
+import Collection from "./pages/Collection";
 
 import './App.css';
 
@@ -42,6 +43,7 @@ function App() {
         <Switch>
           <Route path='/login' component={Auth} />
           <ProtectedRoute exact path='/' component={Home} />
+          <ProtectedRoute exact path='/collection' component={Collection} />
           <Redirect to="/" />
         </Switch>
         <Menu />

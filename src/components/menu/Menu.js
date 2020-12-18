@@ -23,8 +23,8 @@ export function Menu() {
                     Home
                 </div>
             </div>
-            <div className="item" onClick={() => history.push('/profile')}>
-                <div className={`item-content ${location.pathname === '/profile' && 'active'}`}>
+            <div className="item" onClick={() => history.push('/collection')}>
+                <div className={`item-content ${location.pathname === '/collection' && 'active'}`}>
                     <i className="fas fa-list-alt"></i>
                     My collection
                 </div>

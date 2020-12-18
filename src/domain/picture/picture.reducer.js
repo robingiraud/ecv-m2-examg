@@ -22,6 +22,8 @@ export default function reducer(state, action) {
                 pending: false,
                 pictures: [...pictures]
             }
+        case types.PICTURE_UNLIKED:
+            console.log('totototo')
         case types.PICTURE_FAILED:
             return {
                 ...state,
