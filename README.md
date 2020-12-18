@@ -15,7 +15,7 @@ Launches the test runner in the interactive watch mode.
 
 ## Description
 
-This app allows user to search images and for save users to like and follow content.
+This app allows user lists all images and for save an image to an user's collection, you can like a picture and comment a picture.
 
 API URL : `https://examg-api.herokuapp.com/`
 
@@ -29,12 +29,14 @@ API URL : `https://examg-api.herokuapp.com/`
 |  /api/login  |  POST |   |  {email : String, password : String } | Status : 200 - { user : { _id: String, name: String, email: String, pictures_collection : [{ picsum_id: String, tags : [String] }] }, token : String }  |
 |  /api/logout  |  GET |   |  | Status : 200  | Use to clear cookie
 |__PICTURES__|
-| /api/pictures  |  GET | Optional : page: Number , limit: Number |  | Status : 200 - [{id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[String], _id: String, picsum_id: String, comments: [], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}]  |
-| /api/pictures/:id  |  GET | Number |  | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[String], _id: String, picsum_id: String, comments: [], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  |
-| /api/pictures/:id/like  |  GET | Number |  | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[String], _id: String, picsum_id: String, comments: [], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
-| /api/pictures/:id/unlike  |  PUT | Number | | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[String], _id: String, picsum_id: String, comments: [], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
+| /api/pictures  |  GET | Optional : page: Number , limit: Number |  | Status : 200 - [{id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [{by : {_id: String, name: String}, comment : String }], createdAt: ISODateString, updatedAt: ISODateString, __v: Number}]  |
+| /api/pictures/:id  |  GET | Number |  | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  |
+| /api/pictures/:id/like  |  GET | Number |  | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [{by : {_id: String, name: String}, comment : String }], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
+| /api/pictures/:id/unlike  |  PUT | Number | | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [{by : {_id: String, name: String}, comment : String }], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
+| /api/pictures/:id/comment  |  POST | Number | {comment : String} | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [{by : {_id: String, name: String}, comment : String }], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
+| /api/pictures/:id/comment  |  PUT | Number | {comment : String} | Status : 200 - {id : String, author:String, width : Number, height :Number, url : String, download_url: String, likedBy:[{_id: String, name: String}], _id: String, picsum_id: String, comments: [{by : {_id: String, name: String}, comment : String }], createdAt: ISODateString,updatedAt: ISODateString, __v: Number}  | Should be authenticated |
 |__PICTURES COLLECTION__|
-|  /api/collection/:picsum_id  |  PUT | Number |  | Status : 200 - { user : { _id: String, name: String, email: String, pictures_collection : [{ picsum_id: String, tags : [String] }] }, token : String }  |
+|  /api/collection/:picsum_id  |  POST | Number |  | Status : 200 - { user : { _id: String, name: String, email: String, pictures_collection : [{ picsum_id: String, tags : [String] }] }, token : String }  |
 |  /api/collection/:picsum_id  |  DELETE | Number |  | Status : 200 - { user : { _id: String, name: String, email: String, pictures_collection : [{ picsum_id: String, tags : [String] }] }, token : String }  |
 
 
@@ -55,6 +57,5 @@ __Features needed :__
 * add pagination
 * add to my collection
 * remove to my collection
-* add tag to picture in my collection
-* search into my collection by tag name
+* search into my collection by author name
 * add some test of reducers and components
