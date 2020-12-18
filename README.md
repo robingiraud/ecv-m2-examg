@@ -15,7 +15,7 @@ Launches the test runner in the interactive watch mode.
 
 ## Description
 
-This app allows user lists all images and for save an image to an user's collection, you can like a picture and comment a picture.
+This app allows user to display an existing list of images, you can save an image to your images collection, you can like/unlike an image and comment an image from the global list.
 
 API URL : `https://examg-api.herokuapp.com/`
 
@@ -45,17 +45,17 @@ API URL : `https://examg-api.herokuapp.com/`
 
 __Bugs should be solved :__
 
-* All requests not working, maybe URL error ?
-* like not working (when i like a post i don't see it's liked i need to refresh navigator)
-* I cannot access to my collection page
+* All requests are not working, maybe URL error ?
+* Like isn't working (when i like a post I don't see that is liked I need to refresh the browser)
+* I cannot access to the page : my collection
 
 __Features needed :__
 
 * add logout function
 * add unlike post
 * add a comment to a picture
-* add pagination
-* add to my collection
-* remove to my collection
-* search into my collection by author name
+* add pagination to images list
+* add an image to my collection
+* remove an image from my collection
+* search/filter images from my collection by author name
 * add some test of reducers and components
